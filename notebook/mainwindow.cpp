@@ -15,8 +15,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //lineEdit 的 setText是设置文本 text是获取文本
 
-    usernameList<<"1"<<"张云飞"<<"Lily";
-    password<<"1"<<"YUNFEI"<<"Lilypass";
+    usernameList<<"1"<<"IvanZ";
+    password<<"1"<<"zhangyifan";
 
 
     for(int i = 0;i < usernameList.length(); ++i)

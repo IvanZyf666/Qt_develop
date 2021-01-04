@@ -260,7 +260,7 @@ include /Users/ivan/Qt/5.15.2/clang_64/mkspecs/features/mac/sdk.mk
 first: all
 ####### Build rules
 
-Layout.app/Contents/MacOS/Layout: ui_mainwindow.h $(OBJECTS)  
+Layout.app/Contents/MacOS/Layout: ui_mainwindow.h ui_userwindow.h $(OBJECTS)  
 	@test -d Layout.app/Contents/MacOS/ || mkdir -p Layout.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -661,7 +661,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents /Users/ivan/Qt/5.15.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../noteTest/mainwindow.h ../noteTest/userwindow.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../noteTest/main.cpp ../noteTest/mainwindow.cpp ../noteTest/userwindow.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../noteTest/mainwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../noteTest/mainwindow.ui ../noteTest/userwindow.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -707,6 +707,12 @@ moc_mainwindow.cpp: ../noteTest/mainwindow.h \
 		/Users/ivan/Qt/5.15.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
 		/Users/ivan/Qt/5.15.2/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
 		/Users/ivan/Qt/5.15.2/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QLineEdit \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QLabel \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qlabel.h \
 		moc_predefs.h \
 		/Users/ivan/Qt/5.15.2/clang_64/bin/moc
 	/Users/ivan/Qt/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/ivan/study/code/githubCode/Qt_develop/build-noteTest-Desktop_x86_darwin_generic_mach_o_64bit-Debug/moc_predefs.h -I/Users/ivan/Qt/5.15.2/clang_64/mkspecs/macx-clang -I/Users/ivan/study/code/githubCode/Qt_develop/noteTest -I/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/ivan/Qt/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/ivan/Qt/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/ivan/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/ivan/Qt/5.15.2/clang_64/lib ../noteTest/mainwindow.h -o moc_mainwindow.cpp
@@ -714,6 +720,10 @@ moc_mainwindow.cpp: ../noteTest/mainwindow.h \
 moc_userwindow.cpp: ../noteTest/userwindow.h \
 		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
 		moc_predefs.h \
 		/Users/ivan/Qt/5.15.2/clang_64/bin/moc
 	/Users/ivan/Qt/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/ivan/study/code/githubCode/Qt_develop/build-noteTest-Desktop_x86_darwin_generic_mach_o_64bit-Debug/moc_predefs.h -I/Users/ivan/Qt/5.15.2/clang_64/mkspecs/macx-clang -I/Users/ivan/study/code/githubCode/Qt_develop/noteTest -I/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/ivan/Qt/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/ivan/Qt/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/ivan/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/ivan/Qt/5.15.2/clang_64/lib ../noteTest/userwindow.h -o moc_userwindow.cpp
@@ -722,12 +732,16 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h
+compiler_uic_make_all: ui_mainwindow.h ui_userwindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h
+	-$(DEL_FILE) ui_mainwindow.h ui_userwindow.h
 ui_mainwindow.h: ../noteTest/mainwindow.ui \
 		/Users/ivan/Qt/5.15.2/clang_64/bin/uic
 	/Users/ivan/Qt/5.15.2/clang_64/bin/uic ../noteTest/mainwindow.ui -o ui_mainwindow.h
+
+ui_userwindow.h: ../noteTest/userwindow.ui \
+		/Users/ivan/Qt/5.15.2/clang_64/bin/uic
+	/Users/ivan/Qt/5.15.2/clang_64/bin/uic ../noteTest/userwindow.ui -o ui_userwindow.h
 
 compiler_rez_source_make_all:
 compiler_rez_source_clean:
@@ -749,6 +763,12 @@ main.o: ../noteTest/main.cpp ../noteTest/mainwindow.h \
 		/Users/ivan/Qt/5.15.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
 		/Users/ivan/Qt/5.15.2/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
 		/Users/ivan/Qt/5.15.2/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QLineEdit \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QLabel \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qlabel.h \
 		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../noteTest/main.cpp
@@ -761,14 +781,26 @@ mainwindow.o: ../noteTest/mainwindow.cpp ../noteTest/mainwindow.h \
 		/Users/ivan/Qt/5.15.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
 		/Users/ivan/Qt/5.15.2/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
 		/Users/ivan/Qt/5.15.2/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QLineEdit \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qlineedit.h \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QLabel \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qlabel.h \
 		ui_mainwindow.h \
 		/Users/ivan/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/QDebug \
-		/Users/ivan/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/qdebug.h
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../noteTest/mainwindow.cpp
 
 userwindow.o: ../noteTest/userwindow.cpp ../noteTest/userwindow.h \
 		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
-		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtSql.framework/Headers/QSqlQuery \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o userwindow.o ../noteTest/userwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 

@@ -5,6 +5,9 @@
 #include "userwindow.h"
 #include <QSqlQuery>
 #include <QSqlDatabase>
+#include <QLineEdit>
+#include <QPushButton>
+#include <QLabel>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,6 +23,14 @@ public:
 
     QStringList usernameList;
     QStringList password;
+
+    QLineEdit * line_username;
+    QLineEdit * line_password;
+    QPushButton * login;
+    QPushButton * btn_exit;
+
+    void setUpUi();
+    int findUsernameIndex(QString str, QStringList usernameList);
 
 private:
     Ui::MainWindow *ui;

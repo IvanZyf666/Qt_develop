@@ -207,6 +207,7 @@ DIST          = /Users/ivan/Qt/5.15.2/clang_64/mkspecs/features/spec_pre.prf \
 		/Users/ivan/Qt/5.15.2/clang_64/mkspecs/features/qt_config.prf \
 		/Users/ivan/Qt/5.15.2/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Users/ivan/Qt/5.15.2/clang_64/mkspecs/features/spec_post.prf \
+		../test2/.qmake.stash \
 		/Users/ivan/Qt/5.15.2/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Users/ivan/Qt/5.15.2/clang_64/mkspecs/features/mac/sdk.prf \
 		/Users/ivan/Qt/5.15.2/clang_64/mkspecs/features/toolchain.prf \
@@ -407,6 +408,7 @@ Makefile: ../test2/test2.pro /Users/ivan/Qt/5.15.2/clang_64/mkspecs/macx-clang/q
 		/Users/ivan/Qt/5.15.2/clang_64/mkspecs/features/qt_config.prf \
 		/Users/ivan/Qt/5.15.2/clang_64/mkspecs/macx-clang/qmake.conf \
 		/Users/ivan/Qt/5.15.2/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/Users/ivan/Qt/5.15.2/clang_64/mkspecs/features/exclusive_builds.prf \
 		/Users/ivan/Qt/5.15.2/clang_64/mkspecs/features/mac/sdk.prf \
 		/Users/ivan/Qt/5.15.2/clang_64/mkspecs/features/toolchain.prf \
@@ -590,6 +592,7 @@ Makefile: ../test2/test2.pro /Users/ivan/Qt/5.15.2/clang_64/mkspecs/macx-clang/q
 /Users/ivan/Qt/5.15.2/clang_64/mkspecs/features/qt_config.prf:
 /Users/ivan/Qt/5.15.2/clang_64/mkspecs/macx-clang/qmake.conf:
 /Users/ivan/Qt/5.15.2/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /Users/ivan/Qt/5.15.2/clang_64/mkspecs/features/exclusive_builds.prf:
 /Users/ivan/Qt/5.15.2/clang_64/mkspecs/features/mac/sdk.prf:
 /Users/ivan/Qt/5.15.2/clang_64/mkspecs/features/toolchain.prf:
@@ -667,6 +670,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r test2.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -754,7 +758,11 @@ mainwindow.o: ../test2/mainwindow.cpp ../test2/mainwindow.h \
 		/Users/ivan/Qt/5.15.2/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
 		/Users/ivan/Qt/5.15.2/clang_64/lib/QtSql.framework/Headers/QSqlDatabase \
 		/Users/ivan/Qt/5.15.2/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/QDebug \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers/qdebug.h \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QListWidgetItem \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../test2/mainwindow.cpp
 
 qrc_res.o: qrc_res.cpp 

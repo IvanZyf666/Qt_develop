@@ -54,12 +54,16 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../noteTest/main.cpp \
 		../noteTest/mainwindow.cpp \
+		../noteTest/userwidget.cpp \
 		../noteTest/userwindow.cpp moc_mainwindow.cpp \
+		moc_userwidget.cpp \
 		moc_userwindow.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
+		userwidget.o \
 		userwindow.o \
 		moc_mainwindow.o \
+		moc_userwidget.o \
 		moc_userwindow.o
 DIST          = /Users/ivan/Qt/5.15.2/clang_64/mkspecs/features/spec_pre.prf \
 		/Users/ivan/Qt/5.15.2/clang_64/mkspecs/qdevice.pri \
@@ -239,8 +243,10 @@ DIST          = /Users/ivan/Qt/5.15.2/clang_64/mkspecs/features/spec_pre.prf \
 		/Users/ivan/Qt/5.15.2/clang_64/mkspecs/features/yacc.prf \
 		/Users/ivan/Qt/5.15.2/clang_64/mkspecs/features/lex.prf \
 		../noteTest/noteTest.pro ../noteTest/mainwindow.h \
+		../noteTest/userwidget.h \
 		../noteTest/userwindow.h ../noteTest/main.cpp \
 		../noteTest/mainwindow.cpp \
+		../noteTest/userwidget.cpp \
 		../noteTest/userwindow.cpp
 QMAKE_TARGET  = Layout
 DESTDIR       = 
@@ -659,8 +665,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /Users/ivan/Qt/5.15.2/clang_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../noteTest/mainwindow.h ../noteTest/userwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../noteTest/main.cpp ../noteTest/mainwindow.cpp ../noteTest/userwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../noteTest/mainwindow.h ../noteTest/userwidget.h ../noteTest/userwindow.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../noteTest/main.cpp ../noteTest/mainwindow.cpp ../noteTest/userwidget.cpp ../noteTest/userwindow.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../noteTest/mainwindow.ui ../noteTest/userwindow.ui $(DISTDIR)/
 
 
@@ -696,9 +702,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /Users/ivan/Qt/5.15.2/clang_64/mkspecs/features/data/dummy.cpp
 	/Library/Developer/CommandLineTools/usr/bin/clang++ -pipe -stdlib=libc++ -g -std=gnu++11 $(EXPORT_ARCH_ARGS) -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mmacosx-version-min=10.13 -Wall -Wextra -dM -E -o moc_predefs.h /Users/ivan/Qt/5.15.2/clang_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_userwindow.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_userwidget.cpp moc_userwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_userwindow.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_userwidget.cpp moc_userwindow.cpp
 moc_mainwindow.cpp: ../noteTest/mainwindow.h \
 		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
@@ -716,6 +722,13 @@ moc_mainwindow.cpp: ../noteTest/mainwindow.h \
 		moc_predefs.h \
 		/Users/ivan/Qt/5.15.2/clang_64/bin/moc
 	/Users/ivan/Qt/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/ivan/study/code/githubCode/Qt_develop/build-noteTest-Desktop_x86_darwin_generic_mach_o_64bit-Debug/moc_predefs.h -I/Users/ivan/Qt/5.15.2/clang_64/mkspecs/macx-clang -I/Users/ivan/study/code/githubCode/Qt_develop/noteTest -I/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/ivan/Qt/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/ivan/Qt/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/ivan/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/ivan/Qt/5.15.2/clang_64/lib ../noteTest/mainwindow.h -o moc_mainwindow.cpp
+
+moc_userwidget.cpp: ../noteTest/userwidget.h \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		moc_predefs.h \
+		/Users/ivan/Qt/5.15.2/clang_64/bin/moc
+	/Users/ivan/Qt/5.15.2/clang_64/bin/moc $(DEFINES) --include /Users/ivan/study/code/githubCode/Qt_develop/build-noteTest-Desktop_x86_darwin_generic_mach_o_64bit-Debug/moc_predefs.h -I/Users/ivan/Qt/5.15.2/clang_64/mkspecs/macx-clang -I/Users/ivan/study/code/githubCode/Qt_develop/noteTest -I/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers -I/Users/ivan/Qt/5.15.2/clang_64/lib/QtGui.framework/Headers -I/Users/ivan/Qt/5.15.2/clang_64/lib/QtSql.framework/Headers -I/Users/ivan/Qt/5.15.2/clang_64/lib/QtCore.framework/Headers -I. -I/Library/Developer/CommandLineTools/usr/include/c++/v1 -I/Library/Developer/CommandLineTools/usr/lib/clang/12.0.0/include -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include -I/Library/Developer/CommandLineTools/usr/include -F/Users/ivan/Qt/5.15.2/clang_64/lib ../noteTest/userwidget.h -o moc_userwidget.cpp
 
 moc_userwindow.cpp: ../noteTest/userwindow.h \
 		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
@@ -794,6 +807,11 @@ mainwindow.o: ../noteTest/mainwindow.cpp ../noteTest/mainwindow.h \
 		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../noteTest/mainwindow.cpp
 
+userwidget.o: ../noteTest/userwidget.cpp ../noteTest/userwidget.h \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qwidget.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o userwidget.o ../noteTest/userwidget.cpp
+
 userwindow.o: ../noteTest/userwindow.cpp ../noteTest/userwindow.h \
 		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/ivan/Qt/5.15.2/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
@@ -805,6 +823,9 @@ userwindow.o: ../noteTest/userwindow.cpp ../noteTest/userwindow.h \
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
+
+moc_userwidget.o: moc_userwidget.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_userwidget.o moc_userwidget.cpp
 
 moc_userwindow.o: moc_userwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_userwindow.o moc_userwindow.cpp

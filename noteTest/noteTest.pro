@@ -14,10 +14,12 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    userwidget.cpp \
     userwindow.cpp
 
 HEADERS += \
     mainwindow.h \
+    userwidget.h \
     userwindow.h
 
 FORMS += \

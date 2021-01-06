@@ -11,34 +11,50 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenuBar>
+#include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
 
-class Ui_Form
+class Ui_UserWindow
 {
 public:
+    QWidget *centralwidget;
+    QMenuBar *menubar;
+    QStatusBar *statusbar;
 
-    void setupUi(QWidget *Form)
+    void setupUi(QMainWindow *UserWindow)
     {
-        if (Form->objectName().isEmpty())
-            Form->setObjectName(QString::fromUtf8("Form"));
-        Form->resize(400, 300);
+        if (UserWindow->objectName().isEmpty())
+            UserWindow->setObjectName(QString::fromUtf8("UserWindow"));
+        UserWindow->resize(800, 600);
+        centralwidget = new QWidget(UserWindow);
+        centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        UserWindow->setCentralWidget(centralwidget);
+        menubar = new QMenuBar(UserWindow);
+        menubar->setObjectName(QString::fromUtf8("menubar"));
+        menubar->setGeometry(QRect(0, 0, 800, 24));
+        UserWindow->setMenuBar(menubar);
+        statusbar = new QStatusBar(UserWindow);
+        statusbar->setObjectName(QString::fromUtf8("statusbar"));
+        UserWindow->setStatusBar(statusbar);
 
-        retranslateUi(Form);
+        retranslateUi(UserWindow);
 
-        QMetaObject::connectSlotsByName(Form);
+        QMetaObject::connectSlotsByName(UserWindow);
     } // setupUi
 
-    void retranslateUi(QWidget *Form)
+    void retranslateUi(QMainWindow *UserWindow)
     {
-        Form->setWindowTitle(QCoreApplication::translate("Form", "Form", nullptr));
+        UserWindow->setWindowTitle(QCoreApplication::translate("UserWindow", "MainWindow", nullptr));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class Form: public Ui_Form {};
+    class UserWindow: public Ui_UserWindow {};
 } // namespace Ui
 
 QT_END_NAMESPACE

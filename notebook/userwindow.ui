@@ -39,7 +39,7 @@
      <string>...</string>
     </property>
     <property name="icon">
-     <iconset resource="res.qrc">
+     <iconset>
       <normaloff>:/images/IMG_2.jpg</normaloff>:/images/IMG_2.jpg</iconset>
     </property>
    </widget>
@@ -159,7 +159,7 @@
      <x>0</x>
      <y>0</y>
      <width>400</width>
-     <height>26</height>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
@@ -182,8 +182,6 @@
    </property>
   </action>
  </widget>
- <resources>
-  <include location="res.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

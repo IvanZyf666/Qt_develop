@@ -3,8 +3,10 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <QPainter>
+#include <QStyleOption>
+#include <QDir>
 
-
+// notebook -> 我的笔记
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -71,8 +73,22 @@ MainWindow::MainWindow(QWidget *parent) :
     });
 
     //当点击退出按钮时退出登录界面
-    connect(ui->pushButton_logout,&QPushButton::clicked,this,this->close);
+    connect(ui->pushButton_logout,&QPushButton::clicked,this,&QWidget::close);
 
+
+    // QSS 学习 自定义按钮
+    ui->push_func->setText(QStringLiteral("自定义按钮1"));
+    ui->push_func->setStyleSheet(QString("background-color: green; \
+                                   "));
+    //ui->push_func->setStyleSheet(QString("QPushbutton{border-width: 0px;\
+        background-image: url(:/circleButton.png) }}"));
+
+
+    //ui->push_func->resize(300,300);
+    connect(ui->push_func, &QPushButton::clicked, this, &QWidget::close);
+    //ui->btn_func->move(100,100);
+
+    qDebug() << QDir(":/images").exists()<<QCoreApplication::applicationDirPath();
 }
 
 MainWindow::~MainWindow()
@@ -98,4 +114,9 @@ void MainWindow::paintEvent(QPaintEvent *)
     QPixmap pix;
     pix.load(":/images/IMG_3.jpeg");
     painter.drawPixmap(0,0,this->width(),this->height(),pix);
+
+    // 可以缩放图片
+    //pix = pix.scaled(pix.width() *0.5, pix.height() *0.5);
+
+    //painter.drawPixmap(10,30,pix);
 }

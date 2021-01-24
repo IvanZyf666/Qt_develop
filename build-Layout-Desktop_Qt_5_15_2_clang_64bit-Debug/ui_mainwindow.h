@@ -36,6 +36,7 @@ public:
     QPushButton *pushButton_login;
     QPushButton *pushButton_logout;
     QLabel *label_3;
+    QPushButton *push_func;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -128,6 +129,9 @@ public:
         font4.setPointSize(20);
         label_3->setFont(font4);
         label_3->setStyleSheet(QString::fromUtf8("color: rgb(0, 85, 127);"));
+        push_func = new QPushButton(centralWidget);
+        push_func->setObjectName(QString::fromUtf8("push_func"));
+        push_func->setGeometry(QRect(30, 50, 113, 32));
         MainWindow->setCentralWidget(centralWidget);
 
         retranslateUi(MainWindow);
@@ -139,10 +143,12 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "\347\231\273\345\275\225\347\225\214\351\235\242", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "\345\257\206\347\240\201\357\274\232", nullptr));
-        label_2->setText(QCoreApplication::translate("MainWindow", "\347\224\250\346\210\267\345\220\215\357\274\232", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "\347\224\250\346\210\2671\345\220\215\357\274\232", nullptr));
+        lineEdit_password->setText(QCoreApplication::translate("MainWindow", "color: rgb(0, 85, 127);", nullptr));
         pushButton_login->setText(QCoreApplication::translate("MainWindow", "\347\231\273\345\275\225", nullptr));
         pushButton_logout->setText(QCoreApplication::translate("MainWindow", "\351\200\200\345\207\272", nullptr));
-        label_3->setText(QCoreApplication::translate("MainWindow", "\345\220\276\350\256\260", nullptr));
+        label_3->setText(QCoreApplication::translate("MainWindow", "\345\220\276\350\256\2601", nullptr));
+        push_func->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
     } // retranslateUi
 
 };

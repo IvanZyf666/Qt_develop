@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.5.0
+** Created by: Qt User Interface Compiler version 5.15.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,12 +10,9 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
@@ -39,11 +36,12 @@ public:
     QPushButton *pushButton_login;
     QPushButton *pushButton_logout;
     QLabel *label_3;
+    QPushButton *push_func;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName(QStringLiteral("MainWindow"));
+            MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(700, 480);
         MainWindow->setMinimumSize(QSize(700, 480));
         MainWindow->setMaximumSize(QSize(700, 480));
@@ -51,9 +49,9 @@ public:
         font.setPointSize(1);
         MainWindow->setFont(font);
         centralWidget = new QWidget(MainWindow);
-        centralWidget->setObjectName(QStringLiteral("centralWidget"));
+        centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         widget = new QWidget(centralWidget);
-        widget->setObjectName(QStringLiteral("widget"));
+        widget->setObjectName(QString::fromUtf8("widget"));
         widget->setGeometry(QRect(140, 160, 416, 130));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
@@ -63,10 +61,10 @@ public:
         gridLayout = new QGridLayout(widget);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(-1, -1, -1, 11);
         label = new QLabel(widget);
-        label->setObjectName(QStringLiteral("label"));
+        label->setObjectName(QString::fromUtf8("label"));
         QFont font1;
         font1.setFamily(QString::fromUtf8("\345\215\216\346\226\207\346\226\260\351\255\217"));
         font1.setPointSize(13);
@@ -75,13 +73,13 @@ public:
         gridLayout->addWidget(label, 1, 0, 1, 1);
 
         label_2 = new QLabel(widget);
-        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setFont(font1);
 
         gridLayout->addWidget(label_2, 0, 0, 1, 1);
 
         lineEdit_username = new QLineEdit(widget);
-        lineEdit_username->setObjectName(QStringLiteral("lineEdit_username"));
+        lineEdit_username->setObjectName(QString::fromUtf8("lineEdit_username"));
         QFont font2;
         font2.setPointSize(12);
         lineEdit_username->setFont(font2);
@@ -89,7 +87,7 @@ public:
         gridLayout->addWidget(lineEdit_username, 0, 1, 1, 1);
 
         lineEdit_password = new QLineEdit(widget);
-        lineEdit_password->setObjectName(QStringLiteral("lineEdit_password"));
+        lineEdit_password->setObjectName(QString::fromUtf8("lineEdit_password"));
         lineEdit_password->setFont(font2);
         lineEdit_password->setEchoMode(QLineEdit::Password);
 
@@ -100,16 +98,16 @@ public:
         label->raise();
         label_2->raise();
         widget_2 = new QWidget(centralWidget);
-        widget_2->setObjectName(QStringLiteral("widget_2"));
+        widget_2->setObjectName(QString::fromUtf8("widget_2"));
         widget_2->setGeometry(QRect(170, 330, 356, 53));
         sizePolicy.setHeightForWidth(widget_2->sizePolicy().hasHeightForWidth());
         widget_2->setSizePolicy(sizePolicy);
         horizontalLayout_2 = new QHBoxLayout(widget_2);
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         pushButton_login = new QPushButton(widget_2);
-        pushButton_login->setObjectName(QStringLiteral("pushButton_login"));
+        pushButton_login->setObjectName(QString::fromUtf8("pushButton_login"));
         QFont font3;
         font3.setFamily(QString::fromUtf8("\345\215\216\346\226\207\344\273\277\345\256\213"));
         font3.setPointSize(13);
@@ -118,19 +116,25 @@ public:
         horizontalLayout_2->addWidget(pushButton_login);
 
         pushButton_logout = new QPushButton(widget_2);
-        pushButton_logout->setObjectName(QStringLiteral("pushButton_logout"));
+        pushButton_logout->setObjectName(QString::fromUtf8("pushButton_logout"));
         pushButton_logout->setFont(font3);
 
         horizontalLayout_2->addWidget(pushButton_logout);
 
         label_3 = new QLabel(centralWidget);
-        label_3->setObjectName(QStringLiteral("label_3"));
+        label_3->setObjectName(QString::fromUtf8("label_3"));
         label_3->setGeometry(QRect(330, 100, 81, 51));
         QFont font4;
         font4.setFamily(QString::fromUtf8("\345\215\216\346\226\207\351\232\266\344\271\246"));
         font4.setPointSize(20);
         label_3->setFont(font4);
-        label_3->setStyleSheet(QStringLiteral("color: rgb(0, 85, 127);"));
+        label_3->setStyleSheet(QString::fromUtf8("color: rgb(0, 85, 127);"));
+        push_func = new QPushButton(centralWidget);
+        push_func->setObjectName(QString::fromUtf8("push_func"));
+        push_func->setGeometry(QRect(30, 50, 113, 32));
+        QFont font5;
+        font5.setPointSize(14);
+        push_func->setFont(font5);
         MainWindow->setCentralWidget(centralWidget);
 
         retranslateUi(MainWindow);
@@ -140,12 +144,14 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "\347\231\273\345\275\225\347\225\214\351\235\242", 0));
-        label->setText(QApplication::translate("MainWindow", "\345\257\206\347\240\201\357\274\232", 0));
-        label_2->setText(QApplication::translate("MainWindow", "\347\224\250\346\210\267\345\220\215\357\274\232", 0));
-        pushButton_login->setText(QApplication::translate("MainWindow", "\347\231\273\345\275\225", 0));
-        pushButton_logout->setText(QApplication::translate("MainWindow", "\351\200\200\345\207\272", 0));
-        label_3->setText(QApplication::translate("MainWindow", "\345\220\276\350\256\260", 0));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "\347\231\273\345\275\225\347\225\214\351\235\242", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "\345\257\206\347\240\201\357\274\232", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "\347\224\250\346\210\267\345\220\215\357\274\232", nullptr));
+        lineEdit_password->setText(QString());
+        pushButton_login->setText(QCoreApplication::translate("MainWindow", "\347\231\273\345\275\225", nullptr));
+        pushButton_logout->setText(QCoreApplication::translate("MainWindow", "\351\200\200\345\207\272", nullptr));
+        label_3->setText(QCoreApplication::translate("MainWindow", "\345\220\276\350\256\260", nullptr));
+        push_func->setText(QString());
     } // retranslateUi
 
 };
